@@ -1,0 +1,260 @@
+:root {
+    --toyota-red: #eb0a1e;
+    --dark: #0e1014;
+    --dark-2: #151821;
+    --glass: rgba(255,255,255,0.05);
+    --text: #e8e8e8;
+    --muted: #d0d5da;
+    --white: #ffffff;
+    --transition: 0.3s ease;
+  }
+  
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* SKIP LINK */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+  }
+  .skip-link:focus {
+    left: 15px;
+    top: 15px;
+    background: white;
+    color: black;
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  /* HEADER */
+  .header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.5);
+    padding: 1.2rem 2rem;
+    z-index: 100;
+    transition: var(--transition);
+  }
+  
+  .header.scrolled {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .brand-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  .brand-role {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    position: relative;
+    transition: var(--transition);
+  }
+  
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--toyota-red);
+    transition: var(--transition);
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  /* HERO */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background-image: url("https://tmna.aemassets.toyota.com/is/image/toyota/toyota/brand-page/welcome/3840_LGP_Updated_sQwK0KcXWV40ffW.jpg?fmt=jpeg&fit=crop&wid=1439");
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.5));
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    animation: fadeUp 1s ease forwards;
+  }
+  
+  .profile-img {
+    width: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--toyota-red);
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-title {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  
+  /* BUTTONS */
+  .btn {
+    padding: 0.8rem 1.6rem;
+    margin: .5em;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    font-weight: 500;
+  }
+  
+  .primary {
+    background: var(--toyota-red);
+    color: white;
+  }
+  
+  .primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(235,10,30,0.4);
+  }
+  
+  .outline {
+    border: 1px solid var(--toyota-red);
+    color: var(--toyota-red);
+  }
+  
+  .outline:hover {
+    background: var(--toyota-red);
+    color: white;
+  }
+  
+  /* SECTIONS */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .alt {
+    background: var(--dark-2);
+  }
+  
+  /* CARD */
+  .card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: var(--transition);
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+  }
+  
+  .card-img {
+    width: 220px;
+    border-radius: 12px;
+  }
+  
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #000;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  
+  /* ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+  
+    .nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .card {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .card-img {
+      width: 100%;
+      max-width: 350px;
+    }
+  
+    .section {
+      padding: 4rem 1.5rem;
+    }
+  }
